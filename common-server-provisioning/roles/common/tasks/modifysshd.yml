@@ -1,0 +1,6 @@
+---
+- name: Add sshd config
+  ansible.builtin.copy:
+    src: files/sshd_conf
+    dest: "/etc/ssh/sshd_config.d/sshd_conf.conf"
+    mode: 0644

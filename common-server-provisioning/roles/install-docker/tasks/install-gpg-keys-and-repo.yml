@@ -1,0 +1,16 @@
+---
+- name: Create dir for keys
+  ansible.builtin.command: install -m 0755 -d /etc/apt/keyrings
+
+- name: Get gpg keys
+  ansible.builtin.command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+
+- name: Set permission for keys
+  ansible.builtin.command: chmod a+r /etc/apt/keyrings/docker.asc
+
+- name: Create apt list file for docker
+  ansible.builtin.shell: |
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null

@@ -1,0 +1,9 @@
+PermitRootLogin prohibit-password
+Port 22
+MaxAuthTries 6
+PubkeyAuthentication yes
+StrictModes yes
+# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+AuthorizedKeysFile     .ssh/authorized_keys	
+PasswordAuthentication no
+PermitEmptyPasswords no

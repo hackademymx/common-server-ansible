@@ -1,0 +1,29 @@
+---
+- name: Update system
+  ansible.builtin.apt:
+    update_cache: yes
+  tags:
+    - UpdateCache
+
+- name: Upgrade system
+  ansible.builtin.apt:
+    upgrade: yes
+  tags:
+    - UpgradeSystem
+
+- name: Install prerequisites
+  ansible.builtin.apt: 
+    name: "{{ packages }}"
+    state: present
+  tags:
+    - SetupPackages
+
+- name: Support Postgresql
+  ansible.builtin.apt:
+    name: 
+      - libpq-dev
+      - postgresql-client
+    state: present 
+  when: supportpostgres == "yes"
+  tags:
+    - PostgresSupport

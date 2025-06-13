@@ -1,0 +1,22 @@
+---
+packages:
+  - git
+  - htop
+  - unzip
+  - wget
+  - curl
+  - tmux
+  - gnupg
+  - pass
+  - rng-tools
+
+timezone: "America/Mazatlan"
+
+username_admin: "max"
+
+supportpostgres: "no"
+
+#use mkpasswd --method=sha-512 to create hashed valid password instead of using vaulted
+admuser_password: "$6$8xbP5a8.z.tNN.jB$YxKX9Zl7pgRKBZMSZUt9FD/zDiVChKnBCoJKHMJ6kGizJQ7Nc0ZGLGCfCX2cVRRQt/eITJkTf6yv90TG0i7Hk/"
+
+publick_key: ssh-ed25519 "AAAAAAkajsdhfkalsudfyafuijgasdkjhfgasodftnuevallave"

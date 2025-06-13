@@ -1,0 +1,16 @@
+---
+- name: Update system
+  ansible.builtin.apt:
+    update_cache: yes
+  tags:
+    - UpdateCache
+
+- name: Install docker packages
+  ansible.builtin.apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    state: present

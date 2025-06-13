@@ -1,0 +1,12 @@
+---
+- name: Install docker for Debian-Ubuntu
+  import_tasks: install-prerequirements.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Install gpg keys and repo
+  import_tasks: install-gpg-keys-and-repo.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Install docker packages
+  import_tasks: install-docker-pkg.yml
+  when: ansible_facts['os_family']|lower == 'debian'

@@ -1,0 +1,12 @@
+---
+- hosts: all
+
+  roles:
+  - common
+  - install-docker
+
+  post_tasks:
+  - name: Restart SSH
+    ansible.builtin.service:
+      name: ssh
+      state: restarted

@@ -1,0 +1,8 @@
+---
+- name: Crea un usuario admin y lo agrega al grupo de sudo
+  ansible.builtin.user:
+    name: "{{ username_admin }}"
+    shell: /bin/bash
+    groups: sudo
+    password: "{{ admuser_password}}"
+    append: yes

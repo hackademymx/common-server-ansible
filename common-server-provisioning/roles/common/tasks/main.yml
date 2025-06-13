@@ -1,0 +1,9 @@
+---
+- name: Install basic tools for Debian
+  import_tasks: basictools-debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- import_tasks: timezone.yml
+- import_tasks: createuser.yml
+- import_tasks: addusersshkey.yml
+- import_tasks: modifysshd.yml

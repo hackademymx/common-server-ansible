@@ -1,0 +1,7 @@
+---
+- name: Add public key
+  ansible.posix.authorized_key:
+    user: max
+    state: present
+    key: "{{ publick_key }}"
+

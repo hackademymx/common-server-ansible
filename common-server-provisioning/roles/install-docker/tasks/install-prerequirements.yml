@@ -1,0 +1,13 @@
+---
+- name: Update system
+  ansible.builtin.apt:
+    update_cache: yes
+  tags:
+    - UpdateCache
+
+- name: Install certs and curl
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - curl
+    state: present
